@@ -63,13 +63,12 @@ class ROS2Serial(Node):
 
     def topic_to_arduino_callback(self, msg):
         self.get_logger().info(f'To Arduino : {msg.data}')
-        #FIXME:圧縮
-        self.ser.write(msg.data)
+        self.ser.write(str(msg.data))
 
 def main():
     
-    #FIXME:ser should wait for arduino 
-    ser = serial.Serial(args.port, args.baurate, timeout=None)
+    print(f'Waiting for port : {args.port}, baurate : {args.baurate}')
+    ser = serial.Serial(args.port, args.baurate, timeout=None) # timeout=None : read呼び出し時、受信できるまでずっと待つ。
 
     rclpy.init()
     ros2serial = ROS2Serial(
@@ -82,6 +81,7 @@ def main():
 
     rclpy.spin(ros2serial)
     rclpy.shutdown()
+    ser.close()
 
 if __name__=='__main__':
     main()
