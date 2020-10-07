@@ -11,7 +11,9 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools'],
+    install_requires=[
+        'setuptools'
+        'pyserial'],
     zip_safe=True,
     maintainer='toshi',
     maintainer_email='shikito.aos@gmail.com',
@@ -20,6 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'main = ros2serial.ros2serial:main'
         ],
     },
 )
