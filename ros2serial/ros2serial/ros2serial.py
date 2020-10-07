@@ -20,7 +20,7 @@ parser.add_argument('-pt', '--pub_topic_type', type=str, default=None, help='Typ
 parser.add_argument('-sn', '--sub_topic_name', type=str, default=None, help='Name of the topic for message sent to arduino')    
 parser.add_argument('-st', '--sub_topic_type', type=str, default=None, help='Type of the topic for message sent to arduino, e.g. String, Float32, Int32 or Bool')  
 
-args = parser.parse_args() 
+args = parser.parse_args()
 
 class ROS2Serial(Node):
     def __init__(self,
@@ -56,17 +56,19 @@ class ROS2Serial(Node):
 
     def arduino_to_topic_callback(self):
         msg = self.pub_topic_type()
+        #FIXME:展開
         msg.data = self.ser.readline()
         self.arduino_to_topic.publish(msg)
         self.get_logger().info(f'From Arduino : {msg.data}')
 
     def topic_to_arduino_callback(self, msg):
         self.get_logger().info(f'To Arduino : {msg.data}')
+        #FIXME:圧縮
         self.ser.write(msg.data)
 
 def main():
     
-    #TODO:ser should wait for arduino 
+    #FIXME:ser should wait for arduino 
     ser = serial.Serial(args.port, args.baurate, timeout=None)
 
     rclpy.init()
