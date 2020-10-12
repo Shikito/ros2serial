@@ -63,9 +63,7 @@ class ROS2Serial(Node):
         msg = self.pub_topic_type()
         #FIXME:展開
         try:
-            print("before readline")
             received_data = self.ser.readline().decode()
-            print("after readline")
             msg_python_type = self.type_ros2_to_python(self.pub_topic_type)
             msg.data = msg_python_type(received_data)
             self.arduino_to_topic.publish(msg)
