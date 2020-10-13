@@ -22,7 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'main = ros2serial.ros2serial:main'
+            'main = ros2serial.serial_interface:main'
         ],
     },
 )

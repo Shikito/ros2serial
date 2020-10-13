@@ -4,7 +4,13 @@ import serial
 import rclpy
 from rclpy.node import Node
 
+
+# TODO:String固定
+# TODO:Arduinoからのメッセージは垂れ流し=> TOPIC (String)
+# TODO:Arduinoにおくるメッセージはserviceにするのがベター => SERVICE (いろいろ受け取れるように。)
+# １つのことを着実にやるやつ。シェルの概念。by大原くん
 # arduinoの型の種類的にこのぐらいあれば十分かと。
+
 from std_msgs.msg import String
 from std_msgs.msg import Float32
 from std_msgs.msg import Int32
@@ -41,7 +47,7 @@ class ROS2Serial(Node):
         # Arduino     ===> ROS2 Topic
         if self.pub_topic_type is None:
             pass
-        else: 
+        else:
             self.arduino_to_topic = self.create_publisher(
                                         self.pub_topic_type,
                                         self.pub_topic_name,
