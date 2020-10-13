@@ -1,20 +1,20 @@
 # ros2serial
   
-# Features
+## Features
 
 ROS2とシリアルデバイスのインターフェースです。
  
-# Requirement
+## Requirement
  
 * ROS2 Foxy Fitzroy
   
-# Usage
+## Usage
 
 ```bash
 ros2 run ros2serial main 
 ```
  
-# Note
+## Note
  
 
 ポート、ボーレート、ノード名を指定する方法
@@ -23,9 +23,9 @@ ros2 run ros2serial main
 ros2 run ros2serial main -p /dev/ttyACM0 -b 115200 -n serial_interface
 ```
 
-# Author
+## Author
 
-# License
+## License
 
 ライセンスを明示する
  
