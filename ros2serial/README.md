@@ -1,31 +1,31 @@
 # ROS2SERIAL
+  
+# Features
 
-## はじめに
+ROS2とシリアルデバイスのインターフェースです。
+ 
+# Requirement
+ 
+* ROS2 Foxy Fitzroy
+  
+# Usage
 
-ROS2でシリアル通信を実現します。
-例えば、ArduinoをROS2コミュニティに参加させることができます。
+```bash
+ros2 run ros2serial main 
+```
+ 
+# Note
+ 
 
-## 使い方
+ポート、ボーレート、ノード名を指定する方法
 
-Arduinoを例に挙げます。
+```bash
+ros2 run ros2serial main -p /dev/ttyACM0 -b 115200 -n serial_interface
+```
 
-1. ArduinoとPC間でシリアル通信を行っておく.
+# Author
 
-2. 以下のコマンドで、ROS2ノードを起動させる．
-
-
-引数の詳細は、ros2serial/ros2serial.pyのargparseを見てください。
-
-## トラブルシューティング
-
-- ROS2ノード起動時のエラー
-
-    - `ValueError`
-
-        Will be raised when parameter are out of range, e.g. baud rate, data bits.
-
-    - `SerialException `
-
-        In case the device can not be found or can not be configured.
-
-
+# License
+ライセンスを明示する
+ 
+"hoge" is under [ license](https://opensource.org/licenses/BSD-3-Clause).
