@@ -22,11 +22,3 @@ ros2 run ros2serial main
 ```bash
 ros2 run ros2serial main -p /dev/ttyACM0 -b 115200 -n serial_interface
 ```
-
-## Author
-
-## License
-
-ライセンスを明示する
- 
-"hoge" is under [ license](https://opensource.org/licenses/BSD-3-Clause).
