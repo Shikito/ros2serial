@@ -27,12 +27,12 @@ class SerialInterface(Node):
             received = self.ser.readline()
             msg.data = received.decode()
             self.pub_serial_msg.publish(msg)
-            self.get_logger().info(f'From Arduino : {msg.data}')
+            # self.get_logger().info(f'From Arduino : {msg.data}')
         except ValueError as e:
             self.get_logger().info(f"{e}")
     
     def write_to_port_callback(self, request, response):
-        self.get_logger().info(f'To Arduino : {request.data}')
+        # self.get_logger().info(f'To Arduino : {request.data}')
         written_bytes_num = self.ser.write(request.data.encode())
         if written_bytes_num > 0:
             response.success = True
